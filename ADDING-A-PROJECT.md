@@ -1,17 +1,19 @@
 # Add a project
 
-1. Copy `projects/ctrlmark/` to `projects/<slug>/`.
-2. Edit that folder's `index.html`: title, kicker, summary, status. Keep the shared stylesheet link as `/css/site.css`.
-3. Add one object to the `projects` array in `data/projects.json`.
-4. Push `main`.
+The live site is the `public/` folder. Wrangler ignores the repo root.
 
-No build step. Do not add a new domain per project.
+1. Copy `public/projects/ctrlmark/` to `public/projects/<slug>/`.
+2. Edit that folder's `index.html`: title, kicker, summary, status. Keep the shared stylesheet link as `/css/site.css`.
+3. Add one object to the `projects` array in `public/data/projects.json`.
+4. Push `main`. Cloudflare redeploys.
+
+No build step. Do not add a new domain per project. Do not turn on Cloudflare Access.
 
 ## Registry fields
 
 | Field | Required | Notes |
 | --- | --- | --- |
-| slug | yes | Folder name under `projects/`. Lowercase, hyphens. |
+| slug | yes | Folder name under `public/projects/`. Lowercase, hyphens. |
 | title | yes | Card and page name. |
 | tag | yes | Short lane: `WoW addon`, `3D print`, `Electronics`, `Code`. |
 | summary | yes | One or two sentences on the card. |
