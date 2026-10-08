@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "slug": "ctrlmark",
+      "title": "ctrlmark",
+      "tag": "WoW addon",
+      "summary": "First addon from the shack. CurseForge link lands here when the project is public.",
+      "status": "written",
+      "href": "/projects/ctrlmark/"
+    }
+  ]
+}
