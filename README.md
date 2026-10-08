@@ -9,13 +9,13 @@ This repo is public on purpose. The Lutz family vault stays in the private `lutz
 ## Shape
 
 ```
-data/projects.json          registry. the home page and /projects/ read this
-projects/<slug>/index.html  one folder per project
-css/site.css                shared look
-js/site.js                  draws the project list from the registry
+public/                     what Cloudflare serves
+public/data/projects.json   registry. the home page and /projects/ read this
+public/projects/<slug>/     one folder per project
+wrangler.jsonc              tells Wrangler to serve public/
 ```
 
-A project shows up on the site only if it is in `data/projects.json`. The folder is the page. The JSON is the card.
+A project shows up on the site only if it is in `public/data/projects.json`. The folder is the page. The JSON is the card.
 
 ## Add a project
 
@@ -23,13 +23,10 @@ See [ADDING-A-PROJECT.md](ADDING-A-PROJECT.md).
 
 ## Publish
 
-Cloudflare Pages, same account as `lwtec.com`, separate zone and separate project.
+Cloudflare Worker deploy from this repo, same account as `lwtec.com`, separate project. Do not attach the house Worker. Do not turn on Cloudflare Access.
 
-- Build command: none
-- Output directory: `/` (repo root)
-- Production branch: `main`
-- Custom domain: `makers-shack.com` (and `www` if you want it)
+- Build command: empty
+- Deploy command: `npx wrangler deploy`
+- Assets directory: `public/`
 
-Hover stays the registrar. Point nameservers at the new Cloudflare zone, then attach the domain in Pages. Recreate any Hover email forwards in Cloudflare Email Routing after the nameserver cutover.
-
-`/ctrlmark/` redirects to `/projects/ctrlmark/` so the first URL still works.
+Hover stays the registrar. Nameservers are already on Cloudflare. Attach `makers-shack.com` only after the zone is Active.
